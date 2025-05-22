@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            SceneManager.LoadScene(MainMenuScene);   
+            SceneManager.LoadScene(MainMenuScene);
         }
     }
 
@@ -55,13 +55,30 @@ public class LevelManager : MonoBehaviour
         levelCompleteUI.interactable = true;
         levelCompleteUI.blocksRaycasts = true;
     }
+    // void UnlockNewLevel()
+    // {
+    //     if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex", 1))
+    //     {
+    //         PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex + 1);
+    //         PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
+    //         PlayerPrefs.Save();
+    //     }
+    // }
+
     void UnlockNewLevel()
     {
-        if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex"))
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        int reachedIndex = PlayerPrefs.GetInt("ReachedIndex", 0);
+        int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+
+        // Debug.Log($"Current Index: {currentIndex}, Reached: {reachedIndex}, Unlocked: {unlockedLevel}");
+
+        if (currentIndex >= reachedIndex)
         {
-            PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex + 1);
-            PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
+            PlayerPrefs.SetInt("ReachedIndex", currentIndex + 1);
+            PlayerPrefs.SetInt("UnlockedLevel", unlockedLevel + 1);
             PlayerPrefs.Save();
+            Debug.Log("New level unlocked!");
         }
     }
 }

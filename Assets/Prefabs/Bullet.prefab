@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 43898744263725213}
+  - component: {fileID: 3305970197893000958}
   - component: {fileID: 8004256799453218117}
-  - component: {fileID: 5297276262483291428}
   - component: {fileID: 547376652206657969}
   - component: {fileID: 1543823313359341915}
   - component: {fileID: 6596227233095135931}
@@ -37,15 +37,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8004256799453218117
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7191588252977304139}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &5297276262483291428
+--- !u!114 &3305970197893000958
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,6 +51,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotByPlayer: 0
   hasRicocheted: 0
+  speed: 10
+  BulletParticles: {fileID: 8049417437380488624, guid: 221f0748c10154c3eaac1a53eb79bb35, type: 3}
+--- !u!33 &8004256799453218117
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7191588252977304139}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &547376652206657969
 MeshRenderer:
   m_ObjectHideFlags: 0

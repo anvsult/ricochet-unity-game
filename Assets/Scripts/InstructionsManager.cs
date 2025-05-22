@@ -15,6 +15,7 @@ public class InstructionsManager : MonoBehaviour
     {
         playerMovement.enabled = false;
         gun.enabled = false;
+        // gun.enabled = true;
         instructionsLegend.SetActive(false);
 
         greetingUI.alpha = 0f;
