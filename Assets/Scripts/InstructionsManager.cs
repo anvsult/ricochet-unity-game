@@ -13,8 +13,8 @@ public class InstructionsManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // playerMovement.enabled = false;
-        // gun.enabled = false;
+        playerMovement.enabled = false;
+        gun.enabled = false;
         instructionsLegend.SetActive(false);
 
         greetingUI.alpha = 0f;

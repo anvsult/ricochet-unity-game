@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            SceneManager.LoadScene(MainMenuScene);
+            SceneManager.LoadScene(MainMenuScene);   
         }
     }
 
