@@ -1,0 +1,67 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+
+public class LevelManager : MonoBehaviour
+{
+    private bool levelEnded = false;
+    private int MainMenuScene = 0;
+    public CanvasGroup levelCompleteUI;
+    void Start()
+    {
+        levelCompleteUI.alpha = 0f;
+        levelCompleteUI.interactable = false;
+        levelCompleteUI.blocksRaycasts = false;
+
+        StartCoroutine(CheckEnemies());
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            SceneManager.LoadScene(MainMenuScene);
+        }
+    }
+
+    IEnumerator CheckEnemies()
+    {
+        while (!levelEnded)
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+            if (enemies.Length == 0)
+            {
+                levelEnded = true;
+                StartCoroutine(FadeInLevelComplete());
+                UnlockNewLevel();
+            }
+
+            yield return new WaitForSeconds(1f);
+        }
+    }
+    IEnumerator FadeInLevelComplete()
+    {
+        float t = 0f;
+        float duration = 1f;
+
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            levelCompleteUI.alpha = Mathf.Lerp(0f, 1f, t / duration);
+            yield return null;
+        }
+
+        levelCompleteUI.interactable = true;
+        levelCompleteUI.blocksRaycasts = true;
+    }
+    void UnlockNewLevel()
+    {
+        if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex"))
+        {
+            PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex + 1);
+            PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
+            PlayerPrefs.Save();
+        }
+    }
+}
