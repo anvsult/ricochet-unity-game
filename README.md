@@ -18,7 +18,7 @@ A simple Unity 3D arcade shooter where bullets bounce off platforms. The goal is
 
 1. Clone the Repository
 
-git clone https://github.com/your-username/ricochet-shooter.git
+git clone https://github.com/anvsult/ricochet-unity-game.git
 cd ricochet-shooter
 
 2. Open in Unity
