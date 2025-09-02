@@ -22,7 +22,7 @@ The goal is to hit enemies strategically by using ricochets, creating chaotic an
 
 ### https://github.com/user-attachments/assets/cbb864e9-e5f3-4652-ae73-818f88a0e4cc
 
-./gameplay-recording-480p.mov
+[Gameplay](./gameplay-recording-480p.mov)
 
 
 ## 🚀 Getting Started
